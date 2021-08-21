@@ -51,9 +51,18 @@ export default function CustomTest(props){
         <br/>
         <Typography variant="body1" gutterBottom>Fill out all items below than click submit when completed.</Typography>
         <br/>
+
+        {/*Start of the form area */}
         <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="standard-required" label="Test ID" defaultValue=""/>
+
+        <TextField 
+        id="standard-required" 
+        label="Test ID" 
+        defaultValue=""
+        />
+
         <br/>
+
         <TextField
           id="standard-multiline-flexible"
           label="Test Description"
@@ -63,15 +72,28 @@ export default function CustomTest(props){
           onChange={handleChange}
         />
         <br/>
-        <TextField id="standard-search" label="Materials Needed" type="search" />
-        <Tooltip title="Add" aria-label="add"><Fab color="primary" className={classes.fab}><AddIcon /></Fab></Tooltip>
+
+        <TextField 
+        id="standard-search" 
+        label="Materials Needed" 
+        type="search" 
+        />
+
+        {/*Add button Icon */}
+        <Tooltip title="Add" aria-label="add"><Fab color="primary"className={classes.fab}><AddIcon /></Fab></Tooltip>
         <br/>
-        <Chip size="small" label="Change this" onDelete={handleDelete} />
-        <Chip size="small" label="Change this" onDelete={handleDelete} />
-        <Chip size="small" label="Change this" onDelete={handleDelete} />
-        <Chip size="small" label="Change this" onDelete={handleDelete} />
-        <Chip size="small" label="Change this" onDelete={handleDelete} />
-        <Chip size="small" label="Change this" onDelete={handleDelete} />
+            
+        {/*Would need to make these dynamic, so that when the add button is clicked above, the Chips below will add on */}
+      
+  
+                <Chip size="small" label="Material 1" onDelete={handleDelete} />
+                <Chip size="small" label="Material 1" onDelete={handleDelete} />
+                <Chip size="small" label="Material 1" onDelete={handleDelete} />
+                <Chip size="small" label="Material 1" onDelete={handleDelete} />
+                <Chip size="small" label="Material 1" onDelete={handleDelete} />
+
+       
+        
         <br/>
         <TextField
           id="standard-multiline-flexible"
@@ -86,7 +108,6 @@ export default function CustomTest(props){
         <Button variant="contained" color="primary">
         Submit Test
         </Button>
-
 
         </form>
         </div>
