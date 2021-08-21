@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 
 //components
 import NavBar from './components/NavBar.jsx';
-import LeaderBoard from './components/LeaderBoard.jsx'
+import HomePage from './components/HomePage.jsx'
 
 
 //redux
@@ -27,10 +27,10 @@ function App() {
     <div className="App">
      <Provider store={store}>
         <Switch>
-          <Route exact path='/'><NavBar/></Route>
+          <Route exact path='/'><NavBar/><HomePage/></Route>
 
-          <Route path='/customtest'><NavBar/><LeaderBoard/></Route>
-          
+          <Route path='/customtest'><NavBar/></Route>
+
           <Route component={NoMatch}></Route>
         </Switch>
       </Provider>

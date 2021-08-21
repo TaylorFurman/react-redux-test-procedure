@@ -1,27 +1,27 @@
-export function updateScore (data){
+export function addTest (data){
     return{
-        type: 'UPDATE_SCORE',
+        type: 'ADD_TEST',
         data: data
     }
 }
 
-export function timerReset (data){
+export function addMaterial (data){
     return{
-        type: 'TIMER_RESET',
+        type: 'ADD_MATERIAL',
         data: data
     }
 }
 
-export function playerCountUpdate (data){
+export function removeMaterial (data){
     return{
-        type: 'PLAYER_COUNT_UPDATE',
+        type: 'REMOVE_MATERIAL',
         data: data
     }
 }
 
-export function graphUpdate(data){
+export function modifyMaterial(data){
     return{
-        type: 'GRAPH_UPDATE',
+        type: 'MODIFY_MATERIAL',
         data: data
     }
 }

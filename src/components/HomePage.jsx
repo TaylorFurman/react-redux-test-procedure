@@ -19,33 +19,33 @@ const useStyles = makeStyles({
 })
 
 
-function createData(player, score){
-    return{player, score}
+function createData(test, description){
+    return{test, description}
 }
 
 //update this in order to add on more rows
 const rows =[
-    createData('Player 1', 10),
-    createData('Player 2', 8),
+    createData('Density', "Get the density of a fluid using a 100mL graduated cylinder and hydrometer."),
+    createData('pH', "Get the pH of a fluid using a pH probe and 100mL beaker"),
 ]
    
 
-function LeaderBoard(props){
+function HomePage(props){
     const classes = useStyles();
     return(
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label='leaderboard'>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Player ID</TableCell>
-                        <TableCell align="right">Score</TableCell>
+                        <TableCell>Test ID</TableCell>
+                        <TableCell align="right">Description</TableCell>
                     </TableRow>
                 </TableHead>   
                 <TableBody>
                 {rows.map((row) => (
                         <TableRow key={row.name}>
-                        <TableCell component="th" scope="row">{row.player}</TableCell>
-                        <TableCell align="right">{row.score}</TableCell>
+                        <TableCell component="th" scope="row">{row.test}</TableCell>
+                        <TableCell align="right">{row.description}</TableCell>
                         
                         </TableRow>
                     ))}
@@ -56,4 +56,4 @@ function LeaderBoard(props){
     )
 }
 
-export default LeaderBoard;
+export default HomePage;

@@ -19,7 +19,7 @@ function NavBar(props){
         <AppBar position = 'relative'>
             <Toolbar>
                 <Grid container spacing={6} direction="row" justifyContent="center" alignItems="center">
-                    <Grid item><Link to="/" style={{textDecoration: 'none', color: "white"}}> <Typography variant='h4' noWrap>Tests</Typography></Link></Grid> 
+                    <Grid item><Link to="/" style={{textDecoration: 'none', color: "white"}}> <Typography variant='h4' noWrap>Procedure Library</Typography></Link></Grid> 
                     <Grid item><Link to="/customtest" style={{textDecoration: 'none', color: "white"}}><Typography variant='h4' noWrap>Create Custom Test</Typography></Link></Grid>
                     <Grid item><Typography variant='h4' noWrap>Github Repo</Typography></Grid>
                 </Grid>
