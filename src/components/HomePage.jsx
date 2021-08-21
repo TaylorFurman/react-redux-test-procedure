@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Material UI components
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 import '../styles/leader-board.css'
 
@@ -33,6 +35,12 @@ const rows =[
 function HomePage(props){
     const classes = useStyles();
     return(
+        <div>
+            <br/><br/>
+        <Typography variant="h4" gutterBottom>Test Library</Typography>
+        <br/>
+        <Typography variant="body1" gutterBottom>Click test below to access the test method.</Typography>
+        <br/>
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label='leaderboard'>
                 <TableHead>
@@ -52,6 +60,7 @@ function HomePage(props){
                 </TableBody>    
             </Table>
         </TableContainer>
+        </div>
         
     )
 }

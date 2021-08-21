@@ -8,8 +8,10 @@ import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 
+//Control the styling of the material UI components
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -29,25 +31,25 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+//What happens when you click the delete icon on the Chip
 const handleDelete = () => {
 console.info('You clicked the delete icon.');
 };
 
-
+//What is actually rendered on the screen
 export default function CustomTest(props){
     const classes = useStyles();
     const [value, setValue] = React.useState('');
     const handleChange = (event) => {
         setValue(event.target.value);
       };
-
     return(
         <div>
             <br/>
             <br/>
         <Typography variant="h4" gutterBottom>New Test Procedure</Typography>
         <br/>
-        <Typography variant="body1" gutterBottom>Please fill out all items below than click submit when completed.</Typography>
+        <Typography variant="body1" gutterBottom>Fill out all items below than click submit when completed.</Typography>
         <br/>
         <form className={classes.root} noValidate autoComplete="off">
         <TextField id="standard-required" label="Test ID" defaultValue=""/>
@@ -62,10 +64,28 @@ export default function CustomTest(props){
         />
         <br/>
         <TextField id="standard-search" label="Materials Needed" type="search" />
-
         <Tooltip title="Add" aria-label="add"><Fab color="primary" className={classes.fab}><AddIcon /></Fab></Tooltip>
         <br/>
-        <Chip size="small" label="Deletable" onDelete={handleDelete} />
+        <Chip size="small" label="Change this" onDelete={handleDelete} />
+        <Chip size="small" label="Change this" onDelete={handleDelete} />
+        <Chip size="small" label="Change this" onDelete={handleDelete} />
+        <Chip size="small" label="Change this" onDelete={handleDelete} />
+        <Chip size="small" label="Change this" onDelete={handleDelete} />
+        <Chip size="small" label="Change this" onDelete={handleDelete} />
+        <br/>
+        <TextField
+          id="standard-multiline-flexible"
+          label="Saftey Considerations"
+          multiline
+          maxRows={4}
+          value={value}
+          onChange={handleChange}
+        />
+        <br/>
+
+        <Button variant="contained" color="primary">
+        Submit Test
+        </Button>
 
 
         </form>
