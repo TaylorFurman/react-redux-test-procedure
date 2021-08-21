@@ -38,7 +38,7 @@ function HomePage(props){
                 <TableHead>
                     <TableRow>
                         <TableCell>Test ID</TableCell>
-                        <TableCell align="right">Description</TableCell>
+                        <TableCell align="right">Test Description</TableCell>
                     </TableRow>
                 </TableHead>   
                 <TableBody>
