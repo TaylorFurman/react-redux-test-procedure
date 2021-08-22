@@ -15,27 +15,26 @@ import Typography from '@material-ui/core/Typography';
 import '../styles/leader-board.css'
 
 
-const useStyles = makeStyles({
-    table:{
-        minWidth: 650,
-    }
-})
+// const useStyles = makeStyles({
+//     table:{
+//         minWidth: 650,
+//     }
+// })
 
 
-function createData(testId, testDescription){
-    return{testId, testDescription}
-}
+// function //createData(testId, testDescription){
+//     return{testId, testDescription}
+// }
 
 //update this in order to add on more rows
-const rows =[
-    createData('Density', "Get the density of a fluid using a 100mL graduated cylinder and hydrometer."),
-    createData('pH', "Get the pH of a fluid using a pH probe and 100mL beaker"),
-]
+// const rows =[
+//     createData('Density', "Get the density of a fluid using a 100mL graduated cylinder and hydrometer."),
+//     createData('pH', "Get the pH of a fluid using a pH probe and 100mL beaker"),
+// ]
    
 
 //function HomePage(props){
 class TestLibrary extends (react.Component){
-
     render(){
         return(
             <div>
@@ -44,26 +43,26 @@ class TestLibrary extends (react.Component){
             <br/>
             <Typography variant="body1" gutterBottom>Click test below to access the test method.</Typography>
             <br/>
-            <TableContainer component={Paper}>
+            {this.props.testProcedure.map((item,index)=>{
+                return <TableContainer component={Paper} key={index}>
                 <Table aria-label='leaderboard'>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Test ID</TableCell>
-                            <TableCell align="right">Test Description</TableCell>
+                        <TableCell>Test ID</TableCell>
+                        <TableCell align="right">Test Description</TableCell>
                         </TableRow>
-                    </TableHead>                     
-                    {this.props.testProcedure.map((item,index)=>{
-                            <TableBody>
-                                <TableRow key={index}>
-                                    <TableCell component="th" scope="row">{item.testId}</TableCell>
-                                    <TableCell align="right">{item.testDescription}</TableCell> 
-                                </TableRow>
-                            </TableBody>    
-                    }     
-                        )}
-                    
-                </Table>
-            </TableContainer>
+                        </TableHead>                     
+
+                        <TableBody>
+                        <TableRow>
+                        <TableCell component="th" scope="row" label={item.testId}></TableCell>
+                        <TableCell align="right">{item.testDescription}</TableCell> 
+                    </TableRow>
+                </TableBody>                      
+            </Table>
+            </TableContainer>      
+                })
+            }
             </div> 
         )
     }  
@@ -83,4 +82,4 @@ function mapDispatchToProps (dispatch) {
 
 var ConnectedTestLibrary = connect(mapStateToProps, mapDispatchToProps)(TestLibrary);
 
-export default TestLibrary;
+export default ConnectedTestLibrary;
