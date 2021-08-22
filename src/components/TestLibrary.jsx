@@ -1,4 +1,5 @@
 import react from 'react';
+import { connect } from 'react-redux';
 
 //Material UI components
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,7 +34,8 @@ const rows =[
    
 
 //function HomePage(props){
-class HomePage extends (react.Component){
+class TestLibrary extends (react.Component){
+
     render(){
         return(
             <div>
@@ -49,15 +51,17 @@ class HomePage extends (react.Component){
                             <TableCell>Test ID</TableCell>
                             <TableCell align="right">Test Description</TableCell>
                         </TableRow>
-                    </TableHead>   
-                    <TableBody>
-                    {rows.map((row) => (
-                            <TableRow key={row.name}>
-                            <TableCell component="th" scope="row">{row.testId}</TableCell>
-                            <TableCell align="right">{row.testDescription}</TableCell> 
-                            </TableRow>
-                        ))}
-                    </TableBody>    
+                    </TableHead>                     
+                    {this.props.testProcedure.map((item,index)=>{
+                            <TableBody>
+                                <TableRow key={index}>
+                                    <TableCell component="th" scope="row">{item.testId}</TableCell>
+                                    <TableCell align="right">{item.testDescription}</TableCell> 
+                                </TableRow>
+                            </TableBody>    
+                    }     
+                        )}
+                    
                 </Table>
             </TableContainer>
             </div> 
@@ -65,4 +69,18 @@ class HomePage extends (react.Component){
     }  
 }
 
-export default HomePage;
+function mapStateToProps (state) {
+	return {testProcedure: state.testProcedure};
+}
+
+function mapDispatchToProps (dispatch) {
+	return {
+    TestLibrary: function (data) {
+      dispatch(TestLibrary(data))
+    }
+  }
+}
+
+var ConnectedTestLibrary = connect(mapStateToProps, mapDispatchToProps)(TestLibrary);
+
+export default TestLibrary;

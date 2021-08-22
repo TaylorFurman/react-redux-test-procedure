@@ -2,11 +2,11 @@ import deepcopy from 'deepcopy';
 
 let initialProcedure ={
     testProcedure:[
-        {testId: ""},
-        {testDescription: ""},
-        {materialsAndEquipment: ""},
-        {testMethod: ""},
-        {safetyPrecautions: ""},
+        {testId: "", testProcedureUpdate: false},
+        {testDescription: "", testProcedureUpdate: false},
+        {materialsAndEquipment: "", testProcedureUpdate: false},
+        {testMethod: "", testProcedureUpdate: false},
+        {safetyPrecautions: "", testProcedureUpdate: false},
     ]
 }
 
@@ -17,6 +17,10 @@ function testProcedure(state, action){
     console.log(action);
     let new_state = deepcopy(state);
     if (action.type === 'ADD_TEST'){
+            new_state.testProcedure.push({testId: action.data.testId, 
+            testDescription: action.data.testDescription, 
+            testProcedureUpdate: false
+        });
 
     }else if (action.type === 'ADD_MATERIAL'){
 

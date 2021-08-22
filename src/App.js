@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 
 //components
 import NavBar from './components/NavBar.jsx';
-import HomePage from './components/HomePage.jsx'
+import TestLibrary from './components/TestLibrary.jsx'
 import NewTest from './components/NewTest.jsx'
 
 
@@ -28,7 +28,7 @@ function App() {
     <div className="App">
      <Provider store={store}>
         <Switch>
-          <Route exact path='/'><NavBar/><HomePage/></Route>
+          <Route exact path='/'><NavBar/><TestLibrary/></Route>
 
           <Route path='/newtest'><NavBar/><NewTest/></Route>
 
