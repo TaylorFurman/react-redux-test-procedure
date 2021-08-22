@@ -1,4 +1,4 @@
-import React from 'react';
+import react from 'react';
 
 //Material UI components
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,8 +21,8 @@ const useStyles = makeStyles({
 })
 
 
-function createData(test, description){
-    return{test, description}
+function createData(testId, testDescription){
+    return{testId, testDescription}
 }
 
 //update this in order to add on more rows
@@ -32,37 +32,37 @@ const rows =[
 ]
    
 
-function HomePage(props){
-    const classes = useStyles();
-    return(
-        <div>
-            <br/><br/>
-        <Typography variant="h4" gutterBottom>Test Library</Typography>
-        <br/>
-        <Typography variant="body1" gutterBottom>Click test below to access the test method.</Typography>
-        <br/>
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label='leaderboard'>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Test ID</TableCell>
-                        <TableCell align="right">Test Description</TableCell>
-                    </TableRow>
-                </TableHead>   
-                <TableBody>
-                {rows.map((row) => (
-                        <TableRow key={row.name}>
-                        <TableCell component="th" scope="row">{row.test}</TableCell>
-                        <TableCell align="right">{row.description}</TableCell>
-                        
+//function HomePage(props){
+class HomePage extends (react.Component){
+    render(){
+        return(
+            <div>
+                <br/><br/>
+            <Typography variant="h4" gutterBottom>Test Library</Typography>
+            <br/>
+            <Typography variant="body1" gutterBottom>Click test below to access the test method.</Typography>
+            <br/>
+            <TableContainer component={Paper}>
+                <Table aria-label='leaderboard'>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Test ID</TableCell>
+                            <TableCell align="right">Test Description</TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>    
-            </Table>
-        </TableContainer>
-        </div>
-        
-    )
+                    </TableHead>   
+                    <TableBody>
+                    {rows.map((row) => (
+                            <TableRow key={row.name}>
+                            <TableCell component="th" scope="row">{row.testId}</TableCell>
+                            <TableCell align="right">{row.testDescription}</TableCell> 
+                            </TableRow>
+                        ))}
+                    </TableBody>    
+                </Table>
+            </TableContainer>
+            </div> 
+        )
+    }  
 }
 
 export default HomePage;
