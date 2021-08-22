@@ -9,10 +9,6 @@ import Grid from '@material-ui/core/Grid'
 import React from 'react';
 import '../styles/navbar.css'
 
-const MyLink = props => <Link to={window.location.href = 'https://github.com/TaylorFurman/react-redux-test-procedure'} {...props} />
-
-//Need to figure out why this constantly redirects when put into the tool bar
-//<Grid item><Typography variant='h4' noWrap><Link href={window.location.href = 'https://github.com/TaylorFurman/react-redux-test-procedure'} onClick={preventDefault}>Github Repo</Link></Typography></Grid>//
 function NavBar(props){
   const preventDefault = (event) => event.preventDefault();
   return(

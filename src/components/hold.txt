@@ -1,0 +1,36 @@
+const classes = useStyles();
+    const [value, asdf] = React.useState('');
+    const [value2, setValue] = React.useState('');
+    const handleTestDescriptionChange = (event) => {
+        asdf(event.target.value);
+      };
+      const handleSafteyChange = (event) => {
+        setValue(event.target.value2);
+      };
+
+
+
+<TextField 
+
+
+    id="standard-search" 
+    label="Materials Needed" 
+    type="search" 
+    />
+    {/*Add button Icon */}
+    <Tooltip title="Add" aria-label="add"><Fab color="primary"className={classes.fab}><AddIcon /></Fab></Tooltip>
+    <br/>   
+    {/*Would need to make these dynamic, so that when the add button is clicked above, the Chips below will add on */}
+            {/*<Chip size="small" label=" " onDelete={handleDelete} /> */}
+            
+            
+    <br/>
+    <TextField
+      id="standard-multiline-flexible"
+      label="Saftey Considerations"
+      multiline
+      maxRows={4}
+      value={value2}
+      onChange={handleSafteyChange}
+    />
+    <br/>

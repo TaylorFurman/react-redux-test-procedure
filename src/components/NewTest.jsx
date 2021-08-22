@@ -1,17 +1,18 @@
-import React from 'react';
+import react from 'react';
+import {connect} from 'react-redux'
 
 //Material UI
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
-import Fab from '@material-ui/core/Fab';
-import Tooltip from '@material-ui/core/Tooltip';
-import Chip from '@material-ui/core/Chip';
+// import AddIcon from '@material-ui/icons/Add';
+// import Fab from '@material-ui/core/Fab';
+// import Tooltip from '@material-ui/core/Tooltip';
+// import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 //Redux
-
+import {addTest} from '../redux/actions.js'
 
 
 //Control the styling of the material UI components
@@ -40,65 +41,67 @@ console.info('You clicked the delete icon.');
 };
 
 //What is actually rendered on the screen
-export default function NewTest(props){
-    const classes = useStyles();
-    const [value, setValue] = React.useState('');
-    const handleChange = (event) => {
-        setValue(event.target.value);
-      };
-    return(
-        <div>
-            <br/>
-            <br/>
-        <Typography variant="h4" gutterBottom>New Test Procedure</Typography>
-        <br/>
-        <Typography variant="body1" gutterBottom>Fill out all items below than click submit when completed.</Typography>
-        <br/>
-        {/*Start of the form area */}
-        <form className={classes.root} noValidate autoComplete="off">
-        <TextField 
-        id="standard-required" 
-        label="Test ID" 
-        defaultValue=""
-        />
-        <br/>
-        <TextField
-          id="standard-multiline-flexible"
-          label="Test Description"
-          multiline
-          maxRows={4}
-          value={value}
-          onChange={handleChange}
-        />
-        <br/>
-        <TextField 
-        id="standard-search" 
-        label="Materials Needed" 
-        type="search" 
-        />
-        {/*Add button Icon */}
-        <Tooltip title="Add" aria-label="add"><Fab color="primary"className={classes.fab}><AddIcon /></Fab></Tooltip>
-        <br/>   
-        {/*Would need to make these dynamic, so that when the add button is clicked above, the Chips below will add on */}
-                {/*<Chip size="small" label=" " onDelete={handleDelete} /> */}
-                
-                
-        <br/>
-        <TextField
-          id="standard-multiline-flexible"
-          label="Saftey Considerations"
-          multiline
-          maxRows={4}
-          value={value}
-          onChange={handleChange}
-        />
-        <br/>
+//export default function NewTest(props){
+class AddTest extends (react.Component){
+  constructor(props){
+    super (props);
+    this.state = {testId:'', testDescription:''}
+  }
+    
+handleSubmit(event) {
+  console.log(event);
+  event.preventDefault();
 
-        <Button variant="contained" color="primary">
-        Submit Test
-        </Button>
-
-        </form>
-        </div>
-    )
+  if (!this.state.testId && !this.state.testDescription ) {
+    alert('Stop being stupid!!');
+  } else {
+    this.props.addTest({testId: this.state.testId, testDescription: this.state.testDescription});
+    this.setState({testId: '', testDescription: ''});
+  }
 }
+
+updateTestId(event) {
+  this.setState({testId: event.target.value});
+}
+updateTestDescription(event) {
+  this.setState({testDescription: event.target.value});
+}
+
+
+render(){
+  return(
+    <div>
+        <br/>
+        <br/>
+    <Typography variant="h4" gutterBottom>New Test Procedure</Typography>
+    <br/>
+    <Typography variant="body1" gutterBottom>Fill out all items below than click submit when completed.</Typography>
+    <br/>
+    {/*Start of the form area */}
+    <form onSubmit={(e) => this.handleSubmit(e)} noValidate autoComplete="off">
+      <TextField id="standard-required" value={this.state.testId} onChange={(e) => this.updateTestId(e)} label="Test ID" defaultValue=""/>
+      <br/>
+      <TextField id="standard-multiline-flexible" value={this.state.testDescription} onChange={(e) => this.updateTestDescription(e)} label="Test Description" multiline maxRows={4} />
+      <br/><br/>
+      {/*Insert data from hold.txt here */}
+      <Button type="submit" variant="contained" color="primary">Add to Library</Button>
+    </form>
+    </div>
+)
+}
+   
+}
+function mapStateToProps (state) {
+	return {};
+}
+
+function mapDispatchToProps (dispatch) {
+	return {
+    addTest: function (data) {
+      dispatch(addTest(data))
+    }
+  }
+}
+
+var ConnectedAddItem = connect(mapStateToProps, mapDispatchToProps)(AddTest);
+export default ConnectedAddItem;
