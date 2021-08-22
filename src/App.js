@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 //components
 import NavBar from './components/NavBar.jsx';
 import HomePage from './components/HomePage.jsx'
-import CustomTest from './components/CustomTest.jsx'
+import NewTest from './components/NewTest.jsx'
 
 
 //redux
@@ -30,7 +30,7 @@ function App() {
         <Switch>
           <Route exact path='/'><NavBar/><HomePage/></Route>
 
-          <Route path='/customtest'><NavBar/><CustomTest/></Route>
+          <Route path='/newtest'><NavBar/><NewTest/></Route>
 
           <Route component={NoMatch}></Route>
         </Switch>

@@ -5,6 +5,23 @@ export function addTest (data){
     }
 }
 
+
+
+//New Test Page
+export function addTestId (data){
+    return{
+        type: 'ADD_TEST_ID',
+        data: data
+    }
+}
+
+export function addTestDescription (data){
+    return{
+        type: 'ADD_TEST_DESCRIPTION',
+        data: data
+    }
+}
+
 export function addMaterial (data){
     return{
         type: 'ADD_MATERIAL',
