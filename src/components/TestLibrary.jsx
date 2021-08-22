@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 
 import '../styles/leader-board.css'
 
-
 // const useStyles = makeStyles({
 //     table:{
 //         minWidth: 650,
@@ -32,7 +31,6 @@ import '../styles/leader-board.css'
 //     createData('pH', "Get the pH of a fluid using a pH probe and 100mL beaker"),
 // ]
    
-
 //function HomePage(props){
 class TestLibrary extends (react.Component){
     render(){
@@ -42,27 +40,26 @@ class TestLibrary extends (react.Component){
             <Typography variant="h4" gutterBottom>Test Library</Typography>
             <br/>
             <Typography variant="body1" gutterBottom>Click test below to access the test method.</Typography>
-            <br/>
-            {this.props.testProcedure.map((item,index)=>{
-                return <TableContainer component={Paper} key={index}>
-                <Table aria-label='leaderboard'>
-                    <TableHead>
-                        <TableRow>
-                        <TableCell>Test ID</TableCell>
-                        <TableCell align="right">Test Description</TableCell>
-                        </TableRow>
+            <br/>            
+                <TableContainer component={Paper} >
+                    <Table aria-label='leaderboard' >
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Test ID</TableCell>
+                                <TableCell align="right">Test Description</TableCell>
+                            </TableRow>
                         </TableHead>                     
 
-                        <TableBody>
-                        <TableRow>
-                        <TableCell component="th" scope="row" label={item.testId}></TableCell>
-                        <TableCell align="right">{item.testDescription}</TableCell> 
-                    </TableRow>
-                </TableBody>                      
-            </Table>
-            </TableContainer>      
-                })
-            }
+                            <TableBody>
+                            {this.props.testProcedure.map((item,index)=>{
+                            return <TableRow key={index}>
+                                <TableCell component="th" scope="row">{item.testId}</TableCell>
+                                <TableCell align="right">{item.testDescription}</TableCell> 
+                            </TableRow>
+                            })}                                                        
+                        </TableBody>                      
+                    </Table>
+                </TableContainer>                      
             </div> 
         )
     }  

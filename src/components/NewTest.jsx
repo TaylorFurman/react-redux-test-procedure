@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 //Material UI
 import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 // import AddIcon from '@material-ui/icons/Add';
 // import Fab from '@material-ui/core/Fab';
 // import Tooltip from '@material-ui/core/Tooltip';
@@ -16,29 +16,29 @@ import {addTest} from '../redux/actions.js'
 
 
 //Control the styling of the material UI components
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '50ch',
-      },
-    },
-    fab: {
-        margin: theme.spacing(2),
-        width: "5ch",
-        height: "5ch"
-      },
-    absolute: {
-    position: 'absolute',
-    bottom: theme.spacing(1),
-    right: theme.spacing(0),
-    },
-  }));
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//       '& > *': {
+//         margin: theme.spacing(1),
+//         width: '50ch',
+//       },
+//     },
+//     fab: {
+//         margin: theme.spacing(2),
+//         width: "5ch",
+//         height: "5ch"
+//       },
+//     absolute: {
+//     position: 'absolute',
+//     bottom: theme.spacing(1),
+//     right: theme.spacing(0),
+//     },
+//   }));
 
 //What happens when you click the delete icon on the Chip
-const handleDelete = () => {
-console.info('You clicked the delete icon.');
-};
+// const handleDelete = () => {
+// console.info('You clicked the delete icon.');
+// };
 
 //What is actually rendered on the screen
 //export default function NewTest(props){

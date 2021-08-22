@@ -10,7 +10,6 @@ import React from 'react';
 import '../styles/navbar.css'
 
 function NavBar(props){
-  const preventDefault = (event) => event.preventDefault();
   return(
     <div className="navBar">
         <AppBar position = 'relative'>
