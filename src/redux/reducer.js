@@ -14,13 +14,15 @@ function testProcedure(state, action){
     let new_state = deepcopy(state);
     
     if (action.type === 'ADD_TEST'){
-        console.log(action.data.id)
-            new_state.testProcedure.push({
+
+        //     new_state.testProcedure.push({
                 
-                id: action.data.id + 1,
-                testId: action.data.testId, 
-                testDescription: action.data.testDescription, 
-        });
+        //         // id: action.data.id + 1,
+        //         // testId: action.data.testId, 
+        //         // testDescription: action.data.testDescription, 
+        // });
+         new_state.testProcedure.push(action.data)
+        
 
     }else if (action.type === 'ADD_MATERIAL'){
 
@@ -30,6 +32,7 @@ function testProcedure(state, action){
     else if (action.type === 'MODIFY_MATERIAL'){
         
     }
+    return new_state;
 
     //let new_state = deepcopy(state);
 }

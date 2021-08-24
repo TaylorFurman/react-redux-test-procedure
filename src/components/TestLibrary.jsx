@@ -15,24 +15,7 @@ import Typography from '@material-ui/core/Typography';
 
 import '../styles/leader-board.css'
 
-// const useStyles = makeStyles({
-//     table:{
-//         minWidth: 650,
-//     }
-// })
 
-
-// function //createData(testId, testDescription){
-//     return{testId, testDescription}
-// }
-
-//update this in order to add on more rows
-// const rows =[
-//     createData('Density', "Get the density of a fluid using a 100mL graduated cylinder and hydrometer."),
-//     createData('pH', "Get the pH of a fluid using a pH probe and 100mL beaker"),
-// ]
-   
-//function HomePage(props){
 class TestLibrary extends (react.Component){
     render(){
         return(
@@ -55,7 +38,7 @@ class TestLibrary extends (react.Component){
                                 {/*Not sure how the data from store is retrieved here */}
                             {this.props.testProcedure.map((item,index)=>{
                             return <TableRow key={index}>
-                                <TableCell component="th" scope="row">{item.testId}</TableCell>
+                                <TableCell component="th" scope="row"><Link to={`/test/{${item.testId}}`}>{item.testId}</Link></TableCell>
                                 <TableCell align="left">{item.testDescription}</TableCell> 
                             </TableRow>
                             })}                                                        
@@ -82,3 +65,27 @@ function mapDispatchToProps (dispatch) {
 var ConnectedTestLibrary = connect(mapStateToProps, mapDispatchToProps)(TestLibrary);
 
 export default ConnectedTestLibrary;
+
+
+
+
+//Non important stuff below
+
+// const useStyles = makeStyles({
+//     table:{
+//         minWidth: 650,
+//     }
+// })
+
+
+// function //createData(testId, testDescription){
+//     return{testId, testDescription}
+// }
+
+//update this in order to add on more rows
+// const rows =[
+//     createData('Density', "Get the density of a fluid using a 100mL graduated cylinder and hydrometer."),
+//     createData('pH', "Get the pH of a fluid using a pH probe and 100mL beaker"),
+// ]
+   
+//function HomePage(props){

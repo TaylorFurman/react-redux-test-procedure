@@ -45,7 +45,7 @@ import {addTest} from '../redux/actions.js'
 class AddTest extends (react.Component){
   constructor(props){
     super (props);
-    this.state = {testId:'', testDescription:''}
+    this.state = {id:0, testId:'', testDescription:''}
   }
     
 handleSubmit(event) {
@@ -53,10 +53,10 @@ handleSubmit(event) {
   event.preventDefault();
 
   if (!this.state.testId && !this.state.testDescription ) {
-    alert('Stop being stupid!!');
+    alert('All fields are required');
   } else {
     this.props.addTest({id: this.state.id, testId: this.state.testId, testDescription: this.state.testDescription});
-    this.setState({testId: '', testDescription: ''});
+    this.setState({id: this.state.id+1, testId: '', testDescription: ''});
   }
 }
 

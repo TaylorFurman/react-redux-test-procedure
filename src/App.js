@@ -36,7 +36,7 @@ function App() {
 
           <Route path='/newtest'><NavBar/><NewTest/></Route>
       
-          <Route path={`/test/:id`}><TestPrint/> </Route>
+          <Route path={`/test/:id`}><NavBar/><TestPrint/> </Route>
 
           <Route component={NoMatch}></Route>
         </Switch>
