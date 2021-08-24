@@ -1,5 +1,6 @@
 import react from 'react';
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 //Material UI components
 import { makeStyles } from '@material-ui/core/styles';
@@ -46,15 +47,15 @@ class TestLibrary extends (react.Component){
                         <TableHead>
                             <TableRow>
                                 <TableCell>Test ID</TableCell>
-                                <TableCell align="right">Test Description</TableCell>
+                                <TableCell align="left">Test Description</TableCell>
                             </TableRow>
                         </TableHead>                     
 
                             <TableBody>
                             {this.props.testProcedure.map((item,index)=>{
                             return <TableRow key={index}>
-                                <TableCell component="th" scope="row">{item.testId}</TableCell>
-                                <TableCell align="right">{item.testDescription}</TableCell> 
+                                <TableCell component="th" scope="row"><Link to={item.link}>{item.testId}</Link></TableCell>
+                                <TableCell align="left">{item.testDescription}</TableCell> 
                             </TableRow>
                             })}                                                        
                         </TableBody>                      

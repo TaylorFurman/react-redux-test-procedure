@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import NavBar from './components/NavBar.jsx';
 import TestLibrary from './components/TestLibrary.jsx'
 import NewTest from './components/NewTest.jsx'
+import TestPrint from './components/TestPrint.jsx'
 
 
 //redux
@@ -24,13 +25,17 @@ const NoMatch = ({location}) => (
 
 
 function App() {
+  
   return (
     <div className="App">
+      
      <Provider store={store}>
         <Switch>
           <Route exact path='/'><NavBar/><TestLibrary/></Route>
 
           <Route path='/newtest'><NavBar/><NewTest/></Route>
+      
+          <Route path='/test/:id'><TestPrint/> </Route>
 
           <Route component={NoMatch}></Route>
         </Switch>
