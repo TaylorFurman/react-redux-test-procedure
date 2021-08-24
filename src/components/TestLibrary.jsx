@@ -52,9 +52,10 @@ class TestLibrary extends (react.Component){
                         </TableHead>                     
 
                             <TableBody>
+                                {/*Not sure how the data from store is retrieved here */}
                             {this.props.testProcedure.map((item,index)=>{
                             return <TableRow key={index}>
-                                <TableCell component="th" scope="row"><Link to={item.link}>{item.testId}</Link></TableCell>
+                                <TableCell component="th" scope="row">{item.testId}</TableCell>
                                 <TableCell align="left">{item.testDescription}</TableCell> 
                             </TableRow>
                             })}                                                        

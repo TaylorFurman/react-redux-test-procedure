@@ -55,12 +55,13 @@ handleSubmit(event) {
   if (!this.state.testId && !this.state.testDescription ) {
     alert('Stop being stupid!!');
   } else {
-    this.props.addTest({testId: this.state.testId, testDescription: this.state.testDescription});
+    this.props.addTest({id: this.state.id, testId: this.state.testId, testDescription: this.state.testDescription});
     this.setState({testId: '', testDescription: ''});
   }
 }
 
 updateTestId(event) {
+  this.setState({id: this.state.id})
   this.setState({testId: event.target.value});
 }
 updateTestDescription(event) {

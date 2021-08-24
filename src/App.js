@@ -24,6 +24,7 @@ const NoMatch = ({location}) => (
 )
 
 
+
 function App() {
   
   return (
@@ -35,7 +36,7 @@ function App() {
 
           <Route path='/newtest'><NavBar/><NewTest/></Route>
       
-          <Route path='/test/:id'><TestPrint/> </Route>
+          <Route path={`/test/:id`}><TestPrint/> </Route>
 
           <Route component={NoMatch}></Route>
         </Switch>

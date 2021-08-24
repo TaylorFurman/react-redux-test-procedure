@@ -11,10 +11,13 @@ function testProcedure(state, action){
     if (state === undefined){
         return initialProcedure;
     }
-    console.log(action);
     let new_state = deepcopy(state);
+    
     if (action.type === 'ADD_TEST'){
+        console.log(action.data.id)
             new_state.testProcedure.push({
+                
+                id: action.data.id + 1,
                 testId: action.data.testId, 
                 testDescription: action.data.testDescription, 
         });
