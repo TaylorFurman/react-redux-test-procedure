@@ -2,10 +2,16 @@ import deepcopy from 'deepcopy';
 
 let initialProcedure ={
     testProcedure:[
-        {id: 0, testId: "pH by Probe", testDescription: "Get the pH of a liquid via probe (1-6 acidic, 7 neutral, 8-14 basic)"},
-        {id: 1, testId: "Density by Hydrometer", testDescription: "Get the density of a liquid via hydrometer (Density of pure water at ambient conditions = 1.000g/mL)"},
+        {id: 0, 
+            testId: "pH by Probe", 
+            testDescription: "Get the pH of a liquid via probe (1-6 acidic, 7 neutral, 8-14 basic)"},
+        {id: 1, 
+            testId: "Density by Hydrometer", 
+            testDescription: "Get the density of a liquid via hydrometer (Density of pure water at ambient conditions = 1.000g/mL)"},
     ]
 }
+
+
 
 function testProcedure(state, action){
     if (state === undefined){

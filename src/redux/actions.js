@@ -7,7 +7,7 @@ export function addTest (data){
 
 
 
-//New Test Page
+//None of the below are being used
 export function addTestId (data){
     return{
         type: 'ADD_TEST_ID',

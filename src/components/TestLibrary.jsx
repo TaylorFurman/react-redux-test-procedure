@@ -23,7 +23,7 @@ class TestLibrary extends (react.Component){
                 <br/><br/>
             <Typography variant="h4" gutterBottom>Test Library</Typography>
             <br/>
-            <Typography variant="body1" gutterBottom>Click test below to access the test method.</Typography>
+            <Typography variant="body1" gutterBottom>Click test below to access the test method, or click "New Test" to add additional test procedures</Typography>
             <br/>            
                 <TableContainer component={Paper} >
                     <Table aria-label='leaderboard' >
@@ -33,7 +33,6 @@ class TestLibrary extends (react.Component){
                                 <TableCell align="left">Test Description</TableCell>
                             </TableRow>
                         </TableHead>                     
-
                             <TableBody>
                                 {/*Not sure how the data from store is retrieved here */}
                             {this.props.testProcedure.map((item,index)=>{

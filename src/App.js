@@ -18,25 +18,32 @@ import './App.css';
 
 //used incase no url is found
 const NoMatch = ({location}) => (
+  
   <div>
     <h3>Page not Found: {location.pathname}</h3>
   </div>
 )
 
-
-
 function App() {
-  
   return (
     <div className="App">
       
      <Provider store={store}>
         <Switch>
-          <Route exact path='/'><NavBar/><TestLibrary/></Route>
+          <Route exact path='/'>
+            <NavBar/>
+            <TestLibrary/>
+          </Route>
 
-          <Route path='/newtest'><NavBar/><NewTest/></Route>
+          <Route path='/newtest'>
+            <NavBar/>
+            <NewTest/>
+          </Route>
       
-          <Route path={`/test/:id`}><NavBar/><TestPrint/> </Route>
+          <Route path={`/test/:id`}>
+            <NavBar/>
+            <TestPrint/>
+          </Route>
 
           <Route component={NoMatch}></Route>
         </Switch>

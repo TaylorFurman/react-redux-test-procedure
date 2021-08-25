@@ -52,7 +52,7 @@ handleSubmit(event) {
   console.log(event);
   event.preventDefault();
 
-  if (!this.state.testId && !this.state.testDescription ) {
+  if (!this.state.testId || !this.state.testDescription ) {
     alert('All fields are required');
   } else {
     this.props.addTest({id: this.state.id, testId: this.state.testId, testDescription: this.state.testDescription});
