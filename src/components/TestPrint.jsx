@@ -42,7 +42,7 @@ class TestPrint extends React.Component {
                         {this.props.testProcedure.map((item,index)=>{
                         return <TableRow key={index}>
                             <TableCell component="th" scope="row">Test Description</TableCell>
-                            <TableCell align="left">{item.testDescription[(0)]}</TableCell> 
+                            <TableCell align="left">{item.testDescription}</TableCell> 
                         </TableRow>
                         })}                                                        
                     </TableBody>                      
@@ -71,14 +71,6 @@ class TestPrint extends React.Component {
     }
   }
   var ConnectedTestPrint = connect(mapStateToProps, mapDispatchToProps)(TestPrint);
+  console.log(ConnectedTestPrint)
 
   export default ConnectedTestPrint;
-
-
-
-
-
-// {this.props.testProcedure.map((item,index)=>{
-//   return <div key={index}>{item.testId}</div>
-//   })
-//   }
