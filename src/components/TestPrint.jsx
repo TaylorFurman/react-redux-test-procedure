@@ -17,6 +17,10 @@ import Typography from '@material-ui/core/Typography';
 
 
 class TestPrint extends React.Component {
+  constructor(props){
+    super(props);
+    console.log(props);
+  }
     render() {
       return(
         <div>
@@ -30,9 +34,15 @@ class TestPrint extends React.Component {
                     <TableHead>
                         <TableRow>
                             <TableCell>Test ID</TableCell>
+                            {/*this.props.testProcedure.find, rather than this.props.testProcedure.map */}
                             {this.props.testProcedure.map((item,index)=>{
-                            return <TableCell key={index} align="left">{item.testId}</TableCell>
+                              console.log(index)
+                              if (index=='0'){
+                                return <TableCell key={index} align="left">{item.testId}</TableCell>
+                              }
+                            
                           })}  
+                          
                         </TableRow>
                       
                     </TableHead>                     
